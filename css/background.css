@@ -1,0 +1,6 @@
+html,body{min-height:100%}
+body{background-color:#f7f7f7;background-image:url(../img/lalala.png);background-repeat:repeat-x;background-position:bottom}
+.header{height:170px}.header-img{background:#fff url(../img/halo.jpg) no-repeat center center;background-size:cover;overflow:hidden}
+.logo{position:relative;float:left;width:50px;height:60px;background-color:#fff;padding:10px;border-radius:5px;-o-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px}.img-logo{width:100%;height:100%}
+.judul{font-size:30px;color:#fff;line-height:1;text-shadow: 0 0px 1px}.judul:hover{color:#e6e6e6;text-decoration:none}@media only screen and (max-width:480px){.judul{font-size:18px}}@media only screen and (min-width:481px) and (max-width:768px){.judul{font-size:22px}}@media only screen and (min-width:769px) and (max-width:1080px){.judul{font-size:26px}}
+.kotak-judul{width:50%;margin:20px;box-sizing:border-box}.spasi{width:100%;margin-left:60px}
