@@ -33,53 +33,11 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Beranda</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Master Global <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Transaksi<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="<?php echo site_url();?>/administrator/c_global/kota">Kota</a></li>
-                <li><a href="<?php echo site_url();?>/administrator/c_global/province">Provinsi</a></li>
-                <li><a href="<?php echo site_url();?>/administrator/c_global/negara">Negara</a></li>
-                <li><a href="<?php echo site_url();?>/administrator/c_global/kodepos">Kodepos</a></li>
+                <li><a href="<?php echo site_url();?>/administrator/c_mutasi/mutasi">List Mutasi</a></li>
               </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Profile <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="<?php echo site_url();?>/administrator/c_profile/struktur">Struktur Organisasi</a></li>
-                <!--<li><a href="<?php echo site_url();?>/c_profile/sejarah">Sejarah</a></li>-->
-                <li><a href="<?php echo site_url();?>/administrator/c_profile/visi">Visi</a></li>
-                <li><a href="<?php echo site_url();?>/administrator/c_profile/misi">Misi</a></li>
-                <li><a href="<?php echo site_url();?>/administrator/c_profile/daerah">Profil Daerah</a></li>
-                <li><a href="<?php echo site_url();?>/administrator/c_contact/kontak">Kontak</a></li>
-              </ul>
-            </li>
-            <!--<li><a href="<?php echo site_url();?>/administrator/c_gallery/gallery">Gallery</a></li>-->
-            <li><a href="<?php echo site_url();?>/administrator/c_info/info">Data & Informasi</a></li>
-            <li><a href="<?php echo site_url();?>/administrator/c_publikasi/publikasi">Publikasi</a></li>
-            <li><a href="<?php echo site_url();?>/administrator/c_kritik/kritik">Kritik &amp; Saran</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Dokumen <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="<?php echo site_url();?>/administrator/c_dokumen/pidato">Dokumen Pidato</a></li>
-                <li><a href="<?php echo site_url();?>/administrator/c_dokumen/sop">Dokumen SOP</a></li>
-              </ul>
-            </li>
-            <!--<li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Berita <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="<?php echo site_url();?>/administrator/c_berita/kegiatan">Kegiatan Utama</a></li>
-                <li><a href="<?php echo site_url();?>/administrator/c_berita/harian">Berita Harian</a></li>
-                <li><a href="<?php echo site_url();?>/administrator/c_berita/agenda">Agenda</a></li>
-              </ul>
-            </li>-->
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Aplikasi <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <!--<li><a href="<?php echo site_url();?>/administrator/c_aplikasi/esimiga">E-Simiga</a></li>-->
-                <li><a href="<?php echo site_url();?>/administrator/c_aplikasi/linkinternal">Link Internal</a></li>
-              </ul>
-            </li>
-            
-            
+            </li>            
           </ul>
         </div><!--/.nav-collapse -->
         
