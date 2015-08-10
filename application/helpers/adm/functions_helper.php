@@ -1,4 +1,10 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');  
+
+    function ribuan($angka){
+        $angka = number_format($angka);
+        $angka = $angka;
+        return $angka;
+    }
     function getBackDir($parentId){
         // Get a reference to the controller object
         $CI = get_instance();
@@ -143,15 +149,15 @@
     
     //--------------------------FUNGSI PENTING BY ANDI====================================================================================
     //Fungsi untuk membuat rupiah
-		function rupiah($angka){
-			$angka = number_format($angka,2);
-			$angka1 = str_replace('.', '-', $angka); 
-            $angka2 = str_replace(',', '.', $angka1);
-            $angka = str_replace('-', ',', $angka2);
-			//$angka = "Rp. "."$angka";
-			$angka = $angka;
-			return $angka;
-		}
+    function rupiah($angka){
+        $angka = number_format($angka,2);
+        $angka1 = str_replace('.', '-', $angka); 
+        $angka2 = str_replace(',', '.', $angka1);
+        $angka = str_replace('-', ',', $angka2);
+        //$angka = "Rp. "."$angka";
+        $angka = $angka;
+        return $angka;
+    }
     //Fungsi untuk membuat terbilang
 		function terbilang($satuan){ 
 			$huruf = array ("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh","Sebelas"); 
@@ -176,9 +182,9 @@
 		
 		//Fungsi untuk mengubah format tanggal ke indonesia 21/09/2014 misal
 		function tgl_indo ($tgl) {
-			$tanggal = substr($tgl,0,2);
-			$bulan = getBulan(substr($tgl,3,2));
-			$tahun = substr($tgl,6,4);
+			$tanggal = substr($tgl,8,2);
+			$bulan = getBulan(substr($tgl,5,2));
+			$tahun = substr($tgl,0,4);
 			return $tanggal.' '.$bulan.' '.$tahun;
 		}
 

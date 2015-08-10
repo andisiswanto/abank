@@ -10,6 +10,7 @@
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="<?php echo base_url();?>assets/js/ie-emulation-modes-warning.js"></script>
 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>bootstrap332/dist/css/datepicker.css"/>
 
 
 <!-- Fixed navbar -->
@@ -31,7 +32,7 @@
         
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Beranda</a></li>
+            <!--<li class="active"><a href="#">Beranda</a></li>-->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Transaksi<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -76,3 +77,4 @@
     <script type="text/javascript" src="<?php echo base_url();?>ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>ckfinder24/ckfinder.js"></script>
 
+    <script type="text/javascript" src="<?php echo base_url();?>dist/js/bootstrap-datepicker.js"></script>

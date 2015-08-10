@@ -59,7 +59,7 @@ $db['default']['dbdriver'] = 'mysql';
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'root';
-$db['default']['database'] = 'bappenas';
+$db['default']['database'] = 'abank';
 $db['default']['dbdriver'] = 'mysql';
 
 $db['default']['dbprefix'] = '';

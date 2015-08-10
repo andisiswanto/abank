@@ -15,7 +15,7 @@
 |
 */
 //$config['base_url']	= 'http://bankithouse.com/dirsdem/';
-$config['base_url']	= 'http://bappenas.local/';
+$config['base_url']	= 'http://abank/';
 
 /*
 |--------------------------------------------------------------------------
