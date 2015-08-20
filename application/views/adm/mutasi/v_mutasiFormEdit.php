@@ -20,7 +20,7 @@
 </div>
 
 <form method="POST" action="<?php echo site_url();?>/administrator/c_mutasi/mutasiEditSave">
-    <input type="hidden" id="pAmountHidden" name="pAmountHidden"/>
+    <input type="hidden" id="pAmountHidden" name="pAmountHidden" value="<?php echo $jumlah;?>"/>
     <input type="hidden" id="pOldDesc" name="pOldDesc" value="<?php echo $description;?>"/>
     <input type="hidden" id="pId" name="pId" value="<?php echo $kode;?>"/>
     <div class="modal-body"> 

@@ -1,20 +1,30 @@
 <link rel="icon" href="favicon.ico"/>
 <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url();?>dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>dist/css/dataTables.bootstrap.css"/>
-    <!-- Bootstrap theme -->
-    <link href="<?php echo base_url();?>dist/css/bootstrap-theme.min.css" rel="stylesheet"/>
+<link href="<?php echo base_url();?>dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>dist/css/dataTables.bootstrap.css"/>
+<!-- Bootstrap theme -->
+<link href="<?php echo base_url();?>dist/css/bootstrap-theme.min.css" rel="stylesheet"/>
 
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="<?php echo base_url();?>assets/js/ie-emulation-modes-warning.js"></script>
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="<?php echo base_url();?>assets/js/ie-emulation-modes-warning.js"></script>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>bootstrap332/dist/css/datepicker.css"/>
 
+<!-- CHART -->
+<link rel="stylesheet" href="<?php echo base_url();?>librari/chart/morris/morris051.css">
+<link rel="stylesheet" href="<?php echo base_url();?>librari/chart/morris/my.css">
+
+<!-- MULTISELECT -->
+<link rel="stylesheet" href="<?php echo base_url();?>librari/selection/bootstrapMultiselect/bootstrap-multiselect.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 
 <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
     <!--<nav id="navbar-example" class="navbar navbar-default navbar-static">-->
     
     
@@ -34,11 +44,29 @@
           <ul class="nav navbar-nav">
             <!--<li class="active"><a href="#">Beranda</a></li>-->
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Transaksi<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Abank<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="<?php echo site_url();?>/administrator/c_mutasi/mutasi">List Mutasi</a></li>
+                <li><a href="<?php echo site_url();?>/administrator/c_mutasi/mutasi">Mutasi</a></li>
+                <li><a href="<?php echo site_url();?>/administrator/c_mutasi/mutasiHarian">Mutasi Harian</a></li>
+                <li><a href="<?php echo site_url();?>/administrator/c_mutasi/utangku">Mutasi Utang</a></li>
+                <li><a href="<?php echo site_url();?>/administrator/c_mutasi/utangkuHarian">Mutasi Utang Harian</a></li>
               </ul>
-            </li>            
+            </li> 
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Asoka<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="<?php echo site_url();?>/administrator/c_asoka/mutasi">Mutasi</a></li>
+                <li><a href="<?php echo site_url();?>/administrator/c_asoka/mutasiHarian">Mutasi Harian</a></li>
+              </ul>
+            </li> 
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Laporan<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="<?php echo site_url();?>/administrator/c_report/mutasi">Mutasi Bulanan</a></li>
+                <li><a href="<?php echo site_url();?>/administrator/c_report/utang">Utang Bulanan</a></li>
+                <li><a href="<?php echo site_url();?>/administrator/c_report/asoka">Asoka Bulanan</a></li>
+              </ul>
+            </li> 
           </ul>
         </div><!--/.nav-collapse -->
         
@@ -78,3 +106,8 @@
     <script type="text/javascript" src="<?php echo base_url();?>ckfinder24/ckfinder.js"></script>
 
     <script type="text/javascript" src="<?php echo base_url();?>dist/js/bootstrap-datepicker.js"></script>
+    
+
+<script src="<?php echo base_url();?>librari/chart/morris/raphael212-min.js"></script>
+<script src="<?php echo base_url();?>librari/chart/morris/morris051.js"></script>
+<script src="<?php echo base_url();?>librari/selection/bootstrapMultiselect/bootstrap-multiselect.js"></script>

@@ -150,7 +150,8 @@
     //--------------------------FUNGSI PENTING BY ANDI====================================================================================
     //Fungsi untuk membuat rupiah
     function rupiah($angka){
-        $angka = number_format($angka,2);
+        //$angka = number_format($angka,2); //2 angka belakang koma
+        $angka = number_format($angka); 
         $angka1 = str_replace('.', '-', $angka); 
         $angka2 = str_replace(',', '.', $angka1);
         $angka = str_replace('-', ',', $angka2);

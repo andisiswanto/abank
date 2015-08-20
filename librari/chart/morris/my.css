@@ -1,0 +1,6 @@
+@media screen and (max-width: 300px) {
+    #myfirstchart{
+        //background-color: lightblue;
+        width: 30%
+    }
+}
