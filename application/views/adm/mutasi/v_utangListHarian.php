@@ -8,8 +8,6 @@
     </head>
     <body>
         <div  id="page" class="container theme-showcase" role="main">
-            <br /><br /><br />
-
             <div class="container">
                 <?php
                 if(isset($_GET['alt'])){
@@ -44,7 +42,7 @@
                             <table  id="example" class="display" cellspacing="0" width="100%">
                                 <thead>
                                     <th>Tanggal</th>
-                                    <th>MASUK</th>
+                                    <th>Jumlah</th>
                                     <th>ACTION</th>
                                 </thead>
                                 <tbody>
@@ -54,7 +52,7 @@
                                         $jumlahIn=$tbl->jumlahTotalIn;
                                         ?>
                                         <tr>
-                                            <td align="right"><?php echo tgl_indo($date);?></td>
+                                            <td><?php echo tgl_indo($date);?></td>
                                             <td align="right"><?php echo "Rp. ".rupiah($jumlahIn);?></td>
                                             <td width="10%">
                                                 <button class="btn btn-info" id="detail" onclick="cekDetail('<?php echo $date;?>')">DETAIL</button>

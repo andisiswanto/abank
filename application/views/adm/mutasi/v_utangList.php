@@ -12,7 +12,6 @@
     </head>
     <body>
         <div  id="page" class="container theme-showcase" role="main">
-            <br /><br /><br />
             <div class="container">
                 <?php
                 if(isset($_GET['alt'])){
@@ -52,6 +51,8 @@
                                     <th>Debitur</th>
                                     <th>Tanggal</th>
                                     <th>Jumlah</th>
+                                    <th>Terbayar</th>
+                                    <th>Status</th>
                                     <th>Keterangan</th>
                                     <th>ACTION</th>
                                 </thead>
@@ -63,12 +64,22 @@
                                         $jumlah=$tbl->amount;
                                         $debitur=$tbl->debitur;
                                         $description=$tbl->description;
+                                        $payment_status=$tbl->payment_status;
+                                        $payment_amount=$tbl->payment_amount;
+                                        if($payment_status==0){
+                                            $paymentStatusW="OTW";
+                                        }
+                                        else{
+                                            $paymentStatusW="LUNAS";
+                                        }
                                         ?>
                                         <tr>
                                             <td><?php echo $kode;?></td>
                                             <td><?php echo $debitur;?></td>
                                             <td><?php echo tgl_indo($date);?></td>
-                                            <td align="right"><?php echo "Rp. ".rupiah($jumlah);?></td>
+                                            <td align="right"><?php echo rupiah($jumlah);?></td>
+                                            <td align="right"><?php echo rupiah($payment_amount);?></td>
+                                            <td><?php echo $paymentStatusW;?></td>
                                             <td><?php echo $description;?></td>
                                             <td width="10%">
                                                 <button class="btn btn-warning" id="detail" onclick="edit('<?php echo $kode;?>')">EDIT</button>

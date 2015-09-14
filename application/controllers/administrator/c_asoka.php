@@ -1,20 +1,20 @@
 <?php
     if (!defined('BASEPATH')) exit('No direct script access allowed');
     class C_asoka extends CI_Controller{	
-		function __construct(){
-                    session_start();
-                    parent::__construct();
-                    //$this->load->model('adm/m_global');
-                    $this->load->model('adm/m_list');
-                    $this->load->model('adm/m_asoka');
-                    $this->load->model('adm/m_crud');
-                    $this->load->model('adm/m_detail');
-                    $this->load->model('adm/m_validate');
-                    $this->load->helper('adm/functions_helper');
-			//if(!isset($_SESSION['username'])){
-			//	redirect('c_formlogin');
-			//}	
-		}
+        function __construct(){
+            session_start();
+            parent::__construct();
+            //$this->load->model('adm/m_global');
+            $this->load->model('adm/m_list');
+            $this->load->model('adm/m_asoka');
+            $this->load->model('adm/m_crud');
+            $this->load->model('adm/m_detail');
+            $this->load->model('adm/m_validate');
+            $this->load->helper('adm/functions_helper');
+            if(!isset($_SESSION['usrnameAbk'])){
+                redirect('administrator/c_login');
+            }	
+        }
 		
 		
 	function cart(){

@@ -1,3 +1,4 @@
+<head>
 <link rel="icon" href="favicon.ico"/>
 <!-- Bootstrap core CSS -->
 <link href="<?php echo base_url();?>dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -19,10 +20,16 @@
 <!-- MULTISELECT -->
 <link rel="stylesheet" href="<?php echo base_url();?>librari/selection/bootstrapMultiselect/bootstrap-multiselect.css">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- FOOTER -->
+<link href="<?php echo base_url();?>dist/css/footer/sticky-footer.css" rel="stylesheet"/>
 
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 
-
+<style>
+    //body { padding-top: 70px;}
+</style>
+</head>
+<body>
 <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
     <!--<nav id="navbar-example" class="navbar navbar-default navbar-static">-->
@@ -37,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Admin</a>
+          <a class="navbar-brand active" href="<?php echo site_url();?>/administrator/c_main">Admin</a>
         </div>
         
         <div id="navbar" class="navbar-collapse collapse">
@@ -66,7 +73,8 @@
                 <li><a href="<?php echo site_url();?>/administrator/c_report/utang">Utang Bulanan</a></li>
                 <li><a href="<?php echo site_url();?>/administrator/c_report/asoka">Asoka Bulanan</a></li>
               </ul>
-            </li> 
+            </li>
+            <li><a href="<?php echo site_url();?>/administrator/c_login/logout"><i>Logout</i></a></li>
           </ul>
         </div><!--/.nav-collapse -->
         
@@ -74,21 +82,7 @@
     </nav>
     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
  <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -111,3 +105,6 @@
 <script src="<?php echo base_url();?>librari/chart/morris/raphael212-min.js"></script>
 <script src="<?php echo base_url();?>librari/chart/morris/morris051.js"></script>
 <script src="<?php echo base_url();?>librari/selection/bootstrapMultiselect/bootstrap-multiselect.js"></script>
+
+<script type="text/javascript" src="<?php echo base_url();?>jssorSlider/js/jssor.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>jssorSlider/js/jssor.slider.js"></script>

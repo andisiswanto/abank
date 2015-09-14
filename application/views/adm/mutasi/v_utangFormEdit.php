@@ -2,6 +2,9 @@
 <!-- USE THIS STYLE TO ACTIVATE DATEPICKER WITHIN MODAL --> 
 <style> 
     .datepicker{z-index:9999 !important;}
+    .mycontent-left {
+        border-right: 1px dashed #333;
+      }
 </style>
 
 <?php
@@ -11,6 +14,15 @@
         $jumlah=$tbl->amount;
         $debitur=$tbl->debitur;
         $description=$tbl->description;
+        $payment_status=$tbl->payment_status;
+        $payment_amount=$tbl->payment_amount;
+        
+        if($payment_status==0){
+            $paymentStatusW="OTW";
+        }
+        else{
+            $paymentStatusW="LUNAS";
+        }
     }
 ?>
 
@@ -21,32 +33,71 @@
 
 <form method="POST" action="<?php echo site_url();?>/administrator/c_mutasi/utangEditSave">
     <input type="hidden" id="pAmountHidden" name="pAmountHidden" value="<?php echo $jumlah;?>"/>
+    <input type="hidden" id="pPaymentAmountHidden" name="pPaymentAmountHidden" value="<?php echo $payment_amount;?>"/>
     <input type="hidden" id="pOldDesc" name="pOldDesc" value="<?php echo $description;?>"/>
     <input type="hidden" id="pId" name="pId" value="<?php echo $kode;?>"/>
     <div class="modal-body"> 
         <div class="row">
-            <div class="col-xs-6">
-                <div class="form-group">
-                    <label>Tanggal</label>
-                    <input value="<?php echo $date; ?>" class="form-control" type="text" id="pDate" name="pDate" required="" readonly="true"/>
-                </div>
-                <div class="form-group">
-                    <label> Tipe Mutasi </label> 
-                    <select class="form-control" id="pDebitur" name="pDebitur">
-                        <option value="may" <?php if($debitur==="may"){?>selected=""<?php } ?>>MAY</option>
-                        <option value="pepi" <?php if($debitur==="pepi"){?>selected=""<?php } ?>>PEPI</option>
-                        <option value="udang" <?php if($debitur==="udang"){?>selected=""<?php } ?>>UDANG</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Amount</label>
-                    <input value="<?php echo ribuan($jumlah); ?>" class="form-control" type="text" id="pAmount" name="pAmount" required="" onkeyup="convertToCommas(this.value,'pAmount','pAmountHidden');"/>
+            <div class="col-xs-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        PANEL DATA
+                    </div> 
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Tanggal</label>
+                                    <input value="<?php echo $date; ?>" class="form-control" type="text" id="pDate" name="pDate" required="" readonly="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label> Tipe Mutasi </label> 
+                                    <select class="form-control" id="pDebitur" name="pDebitur">
+                                        <option value="may" <?php if($debitur==="may"){?>selected=""<?php } ?>>MAY</option>
+                                        <option value="pepi" <?php if($debitur==="pepi"){?>selected=""<?php } ?>>PEPI</option>
+                                        <option value="udang" <?php if($debitur==="udang"){?>selected=""<?php } ?>>UDANG</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Amount</label>
+                                    <input value="<?php echo ribuan($jumlah); ?>" class="form-control" type="text" id="pAmount" name="pAmount" required="" onkeyup="convertToCommas(this.value,'pAmount','pAmountHidden');"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Deskripsi</label>
+                                    <textarea rows="8" id="pDesc" name="pDesc" class="form-control" required=""><?php echo $description;?></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-xs-6">
-                <div class="form-group">
-                    <label>Deskripsi</label>
-                    <textarea rows="8" id="pDesc" name="pDesc" class="form-control" required=""><?php echo $description;?></textarea>
+        </div>
+        
+        <div class="row">
+            <hr>
+            <div class="col-xs-12">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        PANEL PEMBAYARAN
+                    </div> 
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Status Pembayaran</label>
+                                    <input value="<?php echo $paymentStatusW; ?>" class="form-control" type="text" id="pPaymentStatus" name="pPaymentStatus" disabled=""/>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Terbayar</label>
+                                    <input value="<?php echo $payment_amount; ?>" class="form-control" type="text" id="pPaymentAmount" name="pPaymentAmount" required="" onkeyup="convertToCommas(this.value,'pPaymentAmount','pPaymentAmountHidden');"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

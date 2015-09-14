@@ -1,20 +1,20 @@
 <?php
     if (!defined('BASEPATH')) exit('No direct script access allowed');
     class C_mutasi extends CI_Controller{	
-		function __construct(){
-                    session_start();
-                    parent::__construct();
-                    //$this->load->model('adm/m_global');
-                    $this->load->model('adm/m_list');
-                    $this->load->model('adm/m_mutasi');
-                    $this->load->model('adm/m_crud');
-                    $this->load->model('adm/m_detail');
-                    $this->load->model('adm/m_validate');
-                    $this->load->helper('adm/functions_helper');
-			//if(!isset($_SESSION['username'])){
-			//	redirect('c_formlogin');
-			//}	
-		}
+        function __construct(){
+            session_start();
+            parent::__construct();
+            //$this->load->model('adm/m_global');
+            $this->load->model('adm/m_list');
+            $this->load->model('adm/m_mutasi');
+            $this->load->model('adm/m_crud');
+            $this->load->model('adm/m_detail');
+            $this->load->model('adm/m_validate');
+            $this->load->helper('adm/functions_helper');
+            if(!isset($_SESSION['usrnameAbk'])){
+                redirect('administrator/c_login');
+            }	
+        }
 		
 		
 	function cart(){
@@ -46,8 +46,51 @@
         public function mutasiAdd(){
             $this->load->view('adm/mutasi/v_mutasiForm');
         }
+        public function pengeluaranAdd(){
+            $kode1=$_POST['kode1']; //KODE 1 adalah kode parent (artinya kode di tabel teratas) dlm hal ini trs_mutasi
+            $data['kode1']=$kode1;
+            $this->load->view('adm/mutasi/v_pengeluaranForm',$data);
+        }
         public function utangAdd(){
             $this->load->view('adm/mutasi/v_utangForm');
+        }
+        public function pengeluaranAddSave(){
+            $pIdMutasi=$_POST['pIdMutasi'];
+            $pDate=$_POST['pDate'];
+            $pDesc=$_POST['pDesc'];
+            $pAmountHidden=$_POST['pAmountHidden'];
+            
+            //var_dump($pTipe);
+            for($x=0;$x<5;$x++){ //menghitung jumlah semua inputan, berdasarkan total kkks
+                if(isset($_POST["pChk".$x])){
+                    $pChk[$x]=$_POST["pChk".$x];
+                    $data=array(
+                        'id_mutasi'=>$pIdMutasi,
+                        'amount'=>$pAmountHidden[$x],
+                        'date'=>$pDate,
+                        'description'=>$pDesc[$x],
+
+                        'insertby'=>'andi',
+                        'inserttime'=>  date("Y-m-d H:i:s",  time()-(60*60))
+                    );
+                    $insert=$this->m_crud->allInsertSave($data,'trs_outcome');
+                }
+                else{
+                    $pChk[$x]="off";
+                } 
+            }
+            //var_dump($pChk); 
+            //die;
+            
+            $alert=0;
+            $message="Data Berhasil Disimpan";
+            
+            //REDIRECT
+            ?>
+                <script>
+                    top.location.href="<?php echo site_url('administrator/c_mutasi/mutasi'.'?alt='.$alert.'&msg='.$message);?>";
+                </script>
+            <?php
         }
         public function mutasiAddSave(){
             $pDate=$_POST['pDate'];
@@ -130,6 +173,16 @@
             $data['tabel']=$this->m_detail->getDetailTabel('trs_mutasi','id_mutasi',$kode);
             $this->load->view('adm/mutasi/v_mutasiFormEdit',$data);
         }
+        public function detailPengeluaran(){
+            $kode=$_POST['kode'];
+            $total=$_POST['total'];
+            $data=array(
+                'kode_mutasi' => $kode,
+                'total_pengeluaran' => $total
+            );
+            $data['tabel']=$this->m_detail->getDetailTabel('trs_outcome','id_mutasi',$kode);
+            $this->load->view('adm/mutasi/v_outcomeList',$data);
+        }
         public function utangEdit(){
             $kode=$_POST['kode'];
             $data['tabel']=$this->m_detail->getDetailTabel('trs_utangku','id_utang',$kode);
@@ -189,15 +242,23 @@
             $id=$_POST['pId'];
             $pOldDesc=$_POST['pOldDesc'];
             $pAmountHidden=$_POST['pAmountHidden'];
+            $pPaymentAmountHidden=$_POST['pPaymentAmountHidden'];
             $pDate=$_POST['pDate'];
             $pDebitur=$_POST['pDebitur'];
             $pDesc=$_POST['pDesc'];
-            
+            if($pPaymentAmountHidden>=$pAmountHidden){
+                $pPaymentStatus=1; //LUNAS
+            }
+            else{
+                $pPaymentStatus=0; //ON PROGRESS
+            }
             $data=array(
                 'amount' => $pAmountHidden,
                 'date' => $pDate,
                 'debitur' => $pDebitur,
                 'description' => $pDesc,
+                'payment_status' => $pPaymentStatus,
+                'payment_amount' => $pPaymentAmountHidden,
                 
                 'lastupdby' => 'andi',
                 'lastupdtime' => date("Y-m-d H:i:s",  time()-(60*60)),

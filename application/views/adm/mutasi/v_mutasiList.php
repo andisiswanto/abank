@@ -12,7 +12,6 @@
     </head>
     <body>
         <div  id="page" class="container theme-showcase" role="main">
-            <br /><br /><br />
             <div class="container">
                 <?php
                 if(isset($_GET['alt'])){
@@ -56,7 +55,7 @@
                                     <th>Tanggal</th>
                                     <th>Jumlah</th>
                                     <th>Keterangan</th>
-                                    <th>ACTION</th>
+                                    <th>ACTION / Pengeluaran</th>
                                 </thead>
                                 <tbody>
                                     <?php
@@ -73,8 +72,9 @@
                                             <td><?php echo tgl_indo($date);?></td>
                                             <td align="right"><?php echo "Rp. ".rupiah($jumlah);?></td>
                                             <td><?php echo $description;?></td>
-                                            <td width="10%">
-                                                <button class="btn btn-warning" id="detail" onclick="edit('<?php echo $kode;?>')">EDIT</button>
+                                            <td width="15%">
+                                                <button class="btn btn-warning" id="edit" onclick="edit('<?php echo $kode;?>')">EDIT</button>
+                                                <button class="btn btn-info" id="detail" onclick="detailPengeluaran('<?php echo $kode;?>','<?php echo $jumlah;?>')">Detail</button>
                                             </td>
                                         </tr>  
                                         <?php
@@ -111,13 +111,16 @@
                 console.log(base_url);
                 top.location.href = base_url+url;
             }
-            function cekDetail(kode){
-                $.post("<?= site_url() ?>/administrator/c_mutasi/mutasiDetail", {
-                    kode : kode
-                },
+            function detailPengeluaran(kode,total){
+                $.post("<?= site_url() ?>/administrator/c_mutasi/detailPengeluaran", {
+                    kode : kode,
+                    total : total
+                }
+                ,
                 function(data) {
-                    $('#isiModal').html(data);
-                    $('#detailModal').modal('show');
+                    //$('#isiModal').html(data);
+                    //$('#detailModal').modal('show');
+                    $('#page').html(data);
                 }
                 );
             }

@@ -8,8 +8,6 @@
     </head>
     <body>
         <div  id="page" class="container theme-showcase" role="main">
-            <br /><br /><br />
-
             <div class="container">
                 <?php
                 if(isset($_GET['alt'])){

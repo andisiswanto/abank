@@ -1,5 +1,3 @@
-<br><br>
-
 <div id="myfirstchart" class="graph" style="height: 250px;"></div>
 
 <script>

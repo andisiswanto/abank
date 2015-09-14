@@ -14,5 +14,23 @@
                 ");
                 return $query->result();
             }
+            function getRepMutasiAndi(){
+                $query=$this->db->query("
+                    SELECT id_mutasi,type,amount,date,description
+                    FROM trs_mutasi
+                    WHERE status=0
+                    ORDER BY id_mutasi ASC
+                ");
+                return $query->result();
+            }
+            function getRepMutasiUtang(){
+                $query=$this->db->query("
+                    SELECT id_utang,debitur,amount,date,description,payment_status,payment_amount
+                    FROM trs_utangku
+                    WHERE status=0
+                    ORDER BY id_utang ASC
+                ");
+                return $query->result();
+            }
 	}
 ?>
